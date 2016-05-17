@@ -1,4 +1,4 @@
-package com.gejiahui.androidpractice.ViewPage;
+package com.gejiahui.androidpractice.viewpage;
 
 import android.support.v4.view.ViewPager;
 import android.view.View;

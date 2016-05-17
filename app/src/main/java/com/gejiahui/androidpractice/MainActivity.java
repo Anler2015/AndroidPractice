@@ -11,7 +11,9 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.gejiahui.androidpractice.ViewPage.ViewPageActivity;
+import com.gejiahui.androidpractice.aidl.AIDLClientActivity;
+import com.gejiahui.androidpractice.flexboxlayout.FlexBoxLayoutActivity;
+import com.gejiahui.androidpractice.viewpage.ViewPageActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
         mPractices = new ArrayList<>();
 
         mPractices.add(new Practice("PageTransformer",new Intent(this,ViewPageActivity.class)));
-
+        mPractices.add(new Practice("AIDL",new Intent(this,AIDLClientActivity.class)));
+        mPractices.add(new Practice("FlexBoxLayout",new Intent(this,FlexBoxLayoutActivity.class)));
     }
 
 

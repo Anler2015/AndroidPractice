@@ -16,9 +16,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:theme="@style/AppTheme.NoActionBar"
-            android:name=".ViewPage.ViewPageActivity">
-        </activity>
+            android:name=".viewpage.ViewPageActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".flexboxlayout.FlexBoxLayoutActivity"
+            android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name=".aidl.AIDLClientActivity"
+            android:theme="@style/AppTheme"></activity>
+
+        <service
+            android:name=".aidl.UserManagerService"
+            android:process=":remote"></service>
+
+
     </application>
 
 </manifest>
