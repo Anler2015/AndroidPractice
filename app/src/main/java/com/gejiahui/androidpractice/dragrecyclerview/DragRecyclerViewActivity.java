@@ -10,6 +10,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 
 import com.gejiahui.androidpractice.R;
 
@@ -92,6 +93,17 @@ public class DragRecyclerViewActivity extends AppCompatActivity {
         });
         itemTouchHelper.attachToRecyclerView(recycler_view);
         recycler_view.setItemAnimator(new DefaultItemAnimator());
+        recycler_view.addOnItemTouchListener(new OnRecyclerItemClickListener(recycler_view) {
+            @Override
+            public void OnItemClick(RecyclerView.ViewHolder vh, int position) {
+                Log.i(TAG,"position :" + position);
+            }
+
+            @Override
+            public void OnItemLongClick(RecyclerView.ViewHolder vh, int position) {
+                Log.i(TAG,"long position :" + position);
+            }
+        });
     }
 
 

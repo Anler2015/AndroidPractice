@@ -18,7 +18,7 @@ import butterknife.ButterKnife;
 /**
  * Created by gejiahui on 2016/5/18.
  */
-class DragAdapter extends RecyclerView.Adapter<DragAdapter.DragViewHolder>{
+class DragAdapter extends RecyclerView.Adapter<DragAdapter.DragViewHolder> {
 
     List<DragItem> list;
 
@@ -28,13 +28,13 @@ class DragAdapter extends RecyclerView.Adapter<DragAdapter.DragViewHolder>{
 
     private View.OnLongClickListener mLongClick;
 
-    public void setOnLongClickListener(View.OnLongClickListener listener){
+    public void setOnLongClickListener(View.OnLongClickListener listener) {
         mLongClick = listener;
     }
 
     @Override
     public DragViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_view,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_view, parent, false);
         return new DragViewHolder(view);
     }
 
@@ -45,7 +45,7 @@ class DragAdapter extends RecyclerView.Adapter<DragAdapter.DragViewHolder>{
 //        holder.card.setOnLongClickListener(new View.OnLongClickListener() {
 //            @Override
 //            public boolean onLongClick(View v) {
-//
+//                mLongClick.onLongClick(v);
 //                return false;
 //            }
 //        });
@@ -56,7 +56,7 @@ class DragAdapter extends RecyclerView.Adapter<DragAdapter.DragViewHolder>{
         return list.size();
     }
 
-    class DragViewHolder extends RecyclerView.ViewHolder{
+    class DragViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.img)
         ImageView img;
         @Bind(R.id.item_name)
@@ -66,7 +66,7 @@ class DragAdapter extends RecyclerView.Adapter<DragAdapter.DragViewHolder>{
 
         public DragViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this,itemView);
+            ButterKnife.bind(this, itemView);
         }
     }
 
