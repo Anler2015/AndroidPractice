@@ -27,7 +27,9 @@
         <activity
             android:name=".dragrecyclerview.DragRecyclerViewActivity"
             android:theme="@style/AppTheme"></activity>
-
+        <activity
+            android:name=".loadinganimation.LoadingAnimationActivity"
+            android:theme="@style/AppTheme"></activity>
         <service
             android:name=".aidl.UserManagerService"
             android:process=":remote"></service>
