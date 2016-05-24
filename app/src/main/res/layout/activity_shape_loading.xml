@@ -1,11 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <com.gejiahui.androidpractice.loadinganimation.ShapeLoadingView
-        android:layout_marginTop="80dp"
+        android:id="@+id/loading"
+        android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></com.gejiahui.androidpractice.loadinganimation.ShapeLoadingView>
 
-</LinearLayout>
+
+
+    <Button
+        android:id="@+id/start"
+        android:text="开始动画"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/stop"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/stop"
+        android:text="结束动画"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+
+</RelativeLayout>

@@ -6,6 +6,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
@@ -24,7 +25,7 @@ import butterknife.ButterKnife;
 public class ShapeLoadingView extends FrameLayout {
 
     public float factor = 1.2f;
-
+    private AnimatorSet  mAnimatorSet = null;
     @Bind(R.id.shape)
     ImageView shape;
     @Bind(R.id.shadow)
@@ -56,7 +57,8 @@ public class ShapeLoadingView extends FrameLayout {
         ButterKnife.bind(this,view);
         shape.setImageResource(imgRes[position]);
         addView(view);
-        fallAnimation();
+        setVisibility(View.GONE);
+      //  fallAnimation();
     }
 
 
@@ -78,18 +80,19 @@ public class ShapeLoadingView extends FrameLayout {
         shapeTranslationAnimator.setInterpolator( new DecelerateInterpolator(factor));
 
 
-        AnimatorSet upSet = new AnimatorSet();
+        AnimatorSet  upSet = new AnimatorSet();
         upSet.playTogether(shadowScaleXAnimator, shadowScaleYAnimator,
                 shadowAlphaAnimator,shapeRotationAnimator,shapeTranslationAnimator);
         upSet.setDuration(500);
         upSet.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
-                fallAnimation();
+                    fallAnimation();
             }
+
         });
         upSet.start();
-
+        mAnimatorSet = upSet;
 
     }
 
@@ -112,8 +115,7 @@ public class ShapeLoadingView extends FrameLayout {
                 0, 200);
         shapeTranslationAnimator.setInterpolator( new AccelerateInterpolator(factor));
 
-
-        AnimatorSet fallSet = new AnimatorSet();
+        AnimatorSet  fallSet = new AnimatorSet();
         fallSet.playTogether(shadowScaleXAnimator, shadowScaleYAnimator,
                 shadowAlphaAnimator,shapeRotationAnimator,shapeTranslationAnimator);
         fallSet.setDuration(500);
@@ -127,17 +129,54 @@ public class ShapeLoadingView extends FrameLayout {
                 shape.setImageResource(imgRes[position]);
                 upAnimation();
             }
+
         });
         fallSet.start();
+        mAnimatorSet = fallSet;
+    }
 
+
+    private Runnable mFreeFallRunnable = new Runnable() {
+        @Override
+        public void run() {
+            fallAnimation();
+        }
+    };
+
+    public void startLoading(long delay) {
+        if (getVisibility() == View.VISIBLE && mAnimatorSet != null && mAnimatorSet.isRunning()) {
+            return;
+        }
+        this.removeCallbacks(mFreeFallRunnable);
+        if (delay > 0) {
+            this.postDelayed(mFreeFallRunnable, delay);
+        } else {
+            this.post(mFreeFallRunnable);
+        }
+        setVisibility(View.VISIBLE);
 
     }
 
-    public void startLoading(){
+    public void startLoading() {
+        startLoading(0);
 
-        removeCallbacks()；
-        post()
     }
+
+    public void stopLoading() {
+        if (mAnimatorSet != null && getVisibility() == View.VISIBLE) {
+            if (mAnimatorSet.isRunning()) {
+                mAnimatorSet.cancel();
+                mAnimatorSet.pause();
+                Log.d("animation","pause?" + mAnimatorSet.isRunning());
+            }
+            mAnimatorSet = null;
+        }
+        this.removeCallbacks(mFreeFallRunnable);
+        setVisibility(View.GONE);
+    }
+
+
+
 
 
 }

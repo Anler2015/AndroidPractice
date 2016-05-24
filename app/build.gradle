@@ -27,6 +27,7 @@ android {
                     if (outputFile != null && outputFile.name.endsWith('.apk')) {
                         // 输出apk名称
                         def fileName = "AndroidPractice_v${defaultConfig.versionName}_${releaseTime()}.apk"
+                        //def fileName = "AndroidPractice_v${defaultConfig.versionName}.apk"
                         output.outputFile = new File(outputFile.parent, fileName)
                     }
                 }
