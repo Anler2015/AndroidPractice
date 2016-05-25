@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.gejiahui.androidpractice.aidl.AIDLClientActivity;
 import com.gejiahui.androidpractice.dragrecyclerview.DragRecyclerViewActivity;
 import com.gejiahui.androidpractice.flexboxlayout.FlexBoxLayoutActivity;
+import com.gejiahui.androidpractice.launcher.FirstLauncherActivity;
 import com.gejiahui.androidpractice.loadinganimation.LoadingAnimationActivity;
 import com.gejiahui.androidpractice.viewpage.ViewPageActivity;
 
@@ -51,9 +52,10 @@ public class MainActivity extends AppCompatActivity {
 
         mPractices.add(new Practice("PageTransformer",new Intent(this,ViewPageActivity.class)));
         mPractices.add(new Practice("AIDL",new Intent(this,AIDLClientActivity.class)));
-        mPractices.add(new Practice("FlexBoxLayout",new Intent(this,FlexBoxLayoutActivity.class)));
+        mPractices.add(new Practice("TagLayout",new Intent(this,FlexBoxLayoutActivity.class)));
         mPractices.add(new Practice("DragRecyclerView",new Intent(this,DragRecyclerViewActivity.class)));
         mPractices.add(new Practice("58 loading animation",new Intent(this,LoadingAnimationActivity.class)));
+        mPractices.add(new Practice("first launcher view page",new Intent(this,FirstLauncherActivity.class)));
 
     }
 

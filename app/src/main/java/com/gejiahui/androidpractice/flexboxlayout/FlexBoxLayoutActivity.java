@@ -25,7 +25,7 @@ public class FlexBoxLayoutActivity extends AppCompatActivity {
     TagLayout mTagLayout;
     List<String> mDatas;
     @Override
-    protected void onCreate( Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flexboxlayout);
         ButterKnife.bind(this);
@@ -69,11 +69,11 @@ public class FlexBoxLayoutActivity extends AppCompatActivity {
         mDatas.add("学霸");
         mDatas.add("90后");
         mDatas.add("dota2");
-        mDatas.add("csgo");
+        mDatas.add("cs:go");
         mDatas.add("单身狗");
         mDatas.add("穷比");
         mDatas.add("IT工程师");
-        mDatas.add("andorid");
+        mDatas.add("android");
         mDatas.add("程序猿");
         mDatas.add("没人爱");
         mDatas.add("王老五");
