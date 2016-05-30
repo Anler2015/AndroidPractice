@@ -57,15 +57,17 @@ public class DragRecyclerViewActivity extends AppCompatActivity {
 
                 int fromPosition = viewHolder.getAdapterPosition();//得到拖动ViewHolder的position
                 int toPosition = target.getAdapterPosition();//得到目标ViewHolder的position
-                if (fromPosition < toPosition) {
-                    for (int i = fromPosition; i < toPosition; i++) {
-                        Collections.swap(list, i, i + 1);
-                    }
-                } else {
-                    for (int i = fromPosition; i > toPosition; i--) {
-                        Collections.swap(list, i, i - 1);
-                    }
-                }
+//                if (fromPosition < toPosition) {
+//                    for (int i = fromPosition; i < toPosition; i++) {
+//                        Collections.swap(list, i, i + 1);
+//                    }
+//                } else {
+//                    for (int i = fromPosition; i > toPosition; i--) {
+//                        Collections.swap(list, i, i - 1);
+//                    }
+//                }
+                Collections.swap(list, fromPosition, toPosition);
+                Log.i(TAG," swap ");
                 adapter.notifyItemMoved(fromPosition, toPosition);
                 return true;
             }

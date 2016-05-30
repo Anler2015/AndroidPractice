@@ -5,6 +5,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -32,6 +33,7 @@ public class FirstLauncherActivity extends AppCompatActivity implements ViewPage
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams. FLAG_FULLSCREEN , WindowManager.LayoutParams. FLAG_FULLSCREEN);
         setContentView(R.layout.activity_first_launcher);
         ButterKnife.bind(this);
         initData();
@@ -39,16 +41,17 @@ public class FirstLauncherActivity extends AppCompatActivity implements ViewPage
         mAdapter = new FirstLaunchAdapter(getSupportFragmentManager(),mPageList);
         viewPager.setAdapter(mAdapter);
         viewPager.addOnPageChangeListener(this);
+        viewPager.setCurrentItem(0);
+        viewPager.setOffscreenPageLimit(3);
 
     }
 
 
     private void initData(){
 
-        mPageList.add(new WelcomeFragment());
-        mPageList.add(new WelcomeFragment());
-        mPageList.add(new WelcomeFragment());
-
+        mPageList.add(new PageOneFragment());
+        mPageList.add(new PageTwoFragment());
+        mPageList.add(new PageThreeFragment());
 
     }
 
@@ -97,6 +100,8 @@ public class FirstLauncherActivity extends AppCompatActivity implements ViewPage
             }
         }
         current = position;
+        mPageList.get(position).stopAnimation();
+        mPageList.get(position).startAnimation();
     }
 
     @Override

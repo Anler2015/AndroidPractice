@@ -44,17 +44,12 @@ public class PageOneFragment extends LauncherBaseFragment {
         videoAnimation();
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-
-        super.onActivityCreated(savedInstanceState);
-    }
 
     @Override
     public void onResume() {
         Log.i(TAG,"onResume");
-        startAnimation();
         super.onResume();
+        startAnimation();
     }
 
     @Override
@@ -66,8 +61,8 @@ public class PageOneFragment extends LauncherBaseFragment {
     }
 
     private void videoAnimation() {
-        imgVideo.setVisibility(View.VISIBLE);
-        ScaleAnimation animation = new ScaleAnimation(1.0f, 1.2f, 1.0f, 1.2f);
+
+       final  ScaleAnimation animation = new ScaleAnimation(1.0f, 1.2f, 1.0f, 1.2f);
         animation.setDuration(500);
         animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -85,7 +80,14 @@ public class PageOneFragment extends LauncherBaseFragment {
 
             }
         });
-        imgVideo.startAnimation(animation);
+      //  imgVideo.startAnimation(animation);
+        imgVideo.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                imgVideo.setVisibility(View.VISIBLE);
+                imgVideo.startAnimation(animation);
+            }
+        }, 500);
     }
 
 

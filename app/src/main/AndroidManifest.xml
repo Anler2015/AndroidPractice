@@ -33,7 +33,7 @@
             android:theme="@style/AppTheme"></activity>
         <activity
             android:name=".launcher.FirstLauncherActivity"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <service
             android:name=".aidl.UserManagerService"
             android:process=":remote"></service>
