@@ -16,6 +16,7 @@ import com.gejiahui.androidpractice.dragrecyclerview.DragRecyclerViewActivity;
 import com.gejiahui.androidpractice.flexboxlayout.FlexBoxLayoutActivity;
 import com.gejiahui.androidpractice.launcher.FirstLauncherActivity;
 import com.gejiahui.androidpractice.loadinganimation.LoadingAnimationActivity;
+import com.gejiahui.androidpractice.notification.NotificationActivity;
 import com.gejiahui.androidpractice.viewpage.ViewPageActivity;
 
 import java.util.ArrayList;
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         mPractices.add(new Practice("DragRecyclerView",new Intent(this,DragRecyclerViewActivity.class)));
         mPractices.add(new Practice("58 loading animation",new Intent(this,LoadingAnimationActivity.class)));
         mPractices.add(new Practice("first launcher view page",new Intent(this,FirstLauncherActivity.class)));
+        mPractices.add(new Practice("notification",new Intent(this,NotificationActivity.class)));
 
     }
 

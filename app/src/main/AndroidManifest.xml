@@ -34,6 +34,11 @@
         <activity
             android:name=".launcher.FirstLauncherActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".notification.NotificationActivity"
+            android:theme="@style/AppTheme"></activity>
+
+
         <service
             android:name=".aidl.UserManagerService"
             android:process=":remote"></service>
