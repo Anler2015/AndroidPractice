@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.gejiahui.androidpractice.aidl.AIDLClientActivity;
+import com.gejiahui.androidpractice.blur.BlurImgActivity;
 import com.gejiahui.androidpractice.dragrecyclerview.DragRecyclerViewActivity;
 import com.gejiahui.androidpractice.flexboxlayout.FlexBoxLayoutActivity;
 import com.gejiahui.androidpractice.launcher.FirstLauncherActivity;
@@ -58,8 +59,10 @@ public class MainActivity extends AppCompatActivity {
         mPractices.add(new Practice("58 loading animation",new Intent(this,LoadingAnimationActivity.class)));
         mPractices.add(new Practice("first launcher view page",new Intent(this,FirstLauncherActivity.class)));
         mPractices.add(new Practice("notification",new Intent(this,NotificationActivity.class)));
+        mPractices.add(new Practice("Blur img",new Intent(this,BlurImgActivity.class)));
 
     }
+
 
 
     private class MyAdapter extends BaseAdapter{

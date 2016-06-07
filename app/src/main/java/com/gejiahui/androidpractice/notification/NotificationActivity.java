@@ -294,10 +294,10 @@ public class NotificationActivity extends AppCompatActivity {
         }
         builder.setContentIntent(pIntent);
         //第一个参数是图标资源id 第二个是图标显示的名称，第三个图标点击要启动的PendingIntent
-        builder.addAction(R.drawable.item1,"",null);
-        builder.addAction(R.drawable.item2,"",null);
-        builder.addAction(R.drawable.item3,"",pIntent);
-        builder.addAction(R.drawable.item4,"",null);
+        builder.addAction(R.drawable.ic_favorite_border_white_18dp,"",null);
+        builder.addAction(R.drawable.ic_help_white_18dp,"",null);
+        builder.addAction(R.drawable.ic_power_settings_new_white_18dp,"",null);
+        builder.addAction(R.drawable.ic_search_white_18dp,"",null);
         NotificationCompat.MediaStyle style = new NotificationCompat.MediaStyle();
         style.setMediaSession(new MediaSessionCompat(this,"MediaSession",
                 new ComponentName(this,Intent.ACTION_MEDIA_BUTTON),null).getSessionToken());

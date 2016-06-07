@@ -63,7 +63,7 @@
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:src="@drawable/b"
+            android:src="@drawable/ic_search_white_18dp"
             android:gravity="center"
             />
         <ImageButton
@@ -74,7 +74,7 @@
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:src="@drawable/c"
+            android:src="@drawable/ic_favorite_border_white_36dp"
             android:gravity="center"
             />
         <ImageButton

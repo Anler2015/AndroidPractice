@@ -3,6 +3,7 @@
     package="com.gejiahui.androidpractice">
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <application
         android:name=".PracticeApplication"
         android:allowBackup="true"
@@ -38,6 +39,10 @@
         <activity
             android:name=".notification.NotificationActivity"
             android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name=".blur.BlurImgActivity"
+            android:theme="@style/AppTheme"></activity>
+
 
 
         <service
