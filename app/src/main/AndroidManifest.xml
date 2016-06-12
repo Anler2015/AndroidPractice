@@ -43,8 +43,6 @@
             android:name=".blur.BlurImgActivity"
             android:theme="@style/AppTheme"></activity>
 
-
-
         <service
             android:name=".aidl.UserManagerService"
             android:process=":remote"></service>

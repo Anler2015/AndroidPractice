@@ -42,12 +42,13 @@ public class BlurImgActivity extends AppCompatActivity {
     float y;
     float offset;
     String hint = "";
-
+    BlurByJni blurByJni;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blur_img);
         ButterKnife.bind(this);
+        blurByJni = new BlurByJni();
         applyBlur();
 
         text.setOnTouchListener(new View.OnTouchListener() {
@@ -85,8 +86,12 @@ public class BlurImgActivity extends AppCompatActivity {
 
                         if (chosen == R.id.blur) {
                             blur(bmp, text);
-                        } else {
+                        }
+                        if (chosen == R.id.blurscale) {
                             blurscale(bmp, text);
+                        }
+                        if(chosen == R.id.blur_jni){
+                            blur_jni(bmp, text);
                         }
                         lastY = y;
                         break;
@@ -126,6 +131,10 @@ public class BlurImgActivity extends AppCompatActivity {
             hint = "先压缩后模糊";
             return true;
         }
+        if(id == R.id.blur_jni){
+            hint = "jni";
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -143,8 +152,12 @@ public class BlurImgActivity extends AppCompatActivity {
 
                 if (chosen == R.id.blur) {
                     blur(bmp, text);
-                } else {
+                }
+                if (chosen == R.id.blurscale) {
                     blurscale(bmp, text);
+                }
+                if(chosen == R.id.blur_jni){
+                    blur_jni(bmp, text);
                 }
 
                 return true;
@@ -167,7 +180,7 @@ public class BlurImgActivity extends AppCompatActivity {
 
         canvas.translate(-view.getLeft(), -view.getTop());
         canvas.drawBitmap(bkg, 0, 0, null);
-      //  canvas.drawBitmap(bkg, -view.getLeft(), -view.getTop(), null);
+
 
         RenderScript rs = RenderScript.create(this);
 
@@ -236,6 +249,22 @@ public class BlurImgActivity extends AppCompatActivity {
         statusText.setText(hint+""+(System.currentTimeMillis() - startMs) + "ms");
     }
 
+
+    private void blur_jni(Bitmap bkg, View view){
+        long startMs = System.currentTimeMillis();
+        int w = view.getWidth();
+        int h = view.getHeight();
+        int offY = (int)view.getY();
+        int offX = (int)view.getX();
+        int[] pix = new int[w * h];
+        bkg.getPixels(pix, 0, bkg.getWidth(), offX, offY, w, h);
+        int[] res = blurByJni.blurByJni(pix,w,h,20);
+
+       // bkg.setPixels(res, 0, bkg.getWidth(), 0, 0, w, h);
+        view.setBackground(new BitmapDrawable(getResources(),Bitmap.createBitmap(res,w,h, Bitmap.Config.ARGB_8888) ));
+       // view.setImageBitmap(bkg);
+        statusText.setText(hint+""+(System.currentTimeMillis() - startMs) + "ms");
+    }
 
 }
 

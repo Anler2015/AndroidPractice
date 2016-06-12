@@ -14,7 +14,28 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        ndk {
+            moduleName "blur"
+        }
     }
+
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs 'src/main/libs'
+        }
+    }
+
+
+    productFlavors {
+        arm {
+            ndk {
+                abiFilter "armeabi"
+            }
+        }
+    }
+
+
     buildTypes {
         release {
             minifyEnabled false
