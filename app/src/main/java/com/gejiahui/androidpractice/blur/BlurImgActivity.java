@@ -258,7 +258,7 @@ public class BlurImgActivity extends AppCompatActivity {
         int offX = (int)view.getX();
         int[] pix = new int[w * h];
         bkg.getPixels(pix, 0, bkg.getWidth(), offX, offY, w, h);
-        int[] res = blurByJni.blurByJni(pix,w,h,20);
+        int[] res = blurByJni.blurByJni(pix,w,h,10);
 
        // bkg.setPixels(res, 0, bkg.getWidth(), 0, 0, w, h);
         view.setBackground(new BitmapDrawable(getResources(),Bitmap.createBitmap(res,w,h, Bitmap.Config.ARGB_8888) ));

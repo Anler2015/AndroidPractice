@@ -3,8 +3,10 @@ package com.gejiahui.androidpractice;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
@@ -18,6 +20,7 @@ import com.gejiahui.androidpractice.flexboxlayout.FlexBoxLayoutActivity;
 import com.gejiahui.androidpractice.launcher.FirstLauncherActivity;
 import com.gejiahui.androidpractice.loadinganimation.LoadingAnimationActivity;
 import com.gejiahui.androidpractice.notification.NotificationActivity;
+import com.gejiahui.androidpractice.retrofitdemo.RetrofitActivity;
 import com.gejiahui.androidpractice.viewpage.ViewPageActivity;
 
 import java.util.ArrayList;
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     ListView mPracticeList;
     private MyAdapter mAdapter;
     private List<Practice> mPractices;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,25 +51,26 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(practice.intent);
             }
         });
+        
     }
 
-    private void initData(){
+    private void initData() {
         mPractices = new ArrayList<>();
 
-        mPractices.add(new Practice("PageTransformer",new Intent(this,ViewPageActivity.class)));
-        mPractices.add(new Practice("AIDL",new Intent(this,AIDLClientActivity.class)));
-        mPractices.add(new Practice("TagLayout",new Intent(this,FlexBoxLayoutActivity.class)));
-        mPractices.add(new Practice("DragRecyclerView",new Intent(this,DragRecyclerViewActivity.class)));
-        mPractices.add(new Practice("58 loading animation",new Intent(this,LoadingAnimationActivity.class)));
-        mPractices.add(new Practice("first launcher view page",new Intent(this,FirstLauncherActivity.class)));
-        mPractices.add(new Practice("notification",new Intent(this,NotificationActivity.class)));
-        mPractices.add(new Practice("Blur img",new Intent(this,BlurImgActivity.class)));
+        mPractices.add(new Practice("Retrofit", new Intent(this, RetrofitActivity.class)));
+        mPractices.add(new Practice("PageTransformer", new Intent(this, ViewPageActivity.class)));
+        mPractices.add(new Practice("AIDL", new Intent(this, AIDLClientActivity.class)));
+        mPractices.add(new Practice("TagLayout", new Intent(this, FlexBoxLayoutActivity.class)));
+        mPractices.add(new Practice("DragRecyclerView", new Intent(this, DragRecyclerViewActivity.class)));
+        mPractices.add(new Practice("58 loading animation", new Intent(this, LoadingAnimationActivity.class)));
+        mPractices.add(new Practice("first launcher view page", new Intent(this, FirstLauncherActivity.class)));
+        mPractices.add(new Practice("notification", new Intent(this, NotificationActivity.class)));
+        mPractices.add(new Practice("Blur img", new Intent(this, BlurImgActivity.class)));
 
     }
 
 
-
-    private class MyAdapter extends BaseAdapter{
+    private class MyAdapter extends BaseAdapter {
         @Override
         public int getCount() {
             return mPractices.size();
@@ -96,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
             return convertView;
         }
 
-        class ViewHolder{
+        class ViewHolder {
             TextView title;
         }
 

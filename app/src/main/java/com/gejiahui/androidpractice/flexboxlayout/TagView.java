@@ -62,6 +62,7 @@ public class TagView extends FrameLayout implements Checkable {
         }
     }
 
+    //添加了check状态
     @Override
     public int[] onCreateDrawableState(int extraSpace)
     {

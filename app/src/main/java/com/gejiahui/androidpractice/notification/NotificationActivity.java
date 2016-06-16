@@ -360,4 +360,8 @@ public class NotificationActivity extends AppCompatActivity {
         manager.notify(TYPE_Customer,notification);
     }
 
+
+
+
+
 }
