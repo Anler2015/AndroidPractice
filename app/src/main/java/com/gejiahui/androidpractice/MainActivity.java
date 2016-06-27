@@ -17,6 +17,7 @@ import com.gejiahui.androidpractice.aidl.AIDLClientActivity;
 import com.gejiahui.androidpractice.blur.BlurImgActivity;
 import com.gejiahui.androidpractice.dragrecyclerview.DragRecyclerViewActivity;
 import com.gejiahui.androidpractice.flexboxlayout.FlexBoxLayoutActivity;
+import com.gejiahui.androidpractice.gps.GpsActivity;
 import com.gejiahui.androidpractice.launcher.FirstLauncherActivity;
 import com.gejiahui.androidpractice.loadinganimation.LoadingAnimationActivity;
 import com.gejiahui.androidpractice.notification.NotificationActivity;
@@ -51,7 +52,27 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(practice.intent);
             }
         });
-        
+        ViewConfiguration viewConfiguration = ViewConfiguration.get(this);
+        int touchSlop = viewConfiguration.getScaledTouchSlop();
+        Log.i("gjh","touchSlop"+touchSlop);
+
+        int minimumVelocity = viewConfiguration.getScaledMinimumFlingVelocity();
+        Log.i("gjh","minimumVelocity"+minimumVelocity);
+        int maximumVelocity = viewConfiguration.getScaledMaximumFlingVelocity();
+        Log.i("gjh","maximumVelocity"+maximumVelocity);
+
+        boolean isHavePermanentMenuKey = viewConfiguration.hasPermanentMenuKey();
+        Log.i("gjh","isHavePermanentMenuKey"+isHavePermanentMenuKey);
+
+        int doubleTapTimeout = ViewConfiguration.getDoubleTapTimeout();
+        Log.i("gjh","doubleTapTimeout"+doubleTapTimeout);
+
+        int longPressTimeout = ViewConfiguration.getLongPressTimeout();
+        Log.i("gjh","longPressTimeout"+longPressTimeout);
+
+        int keyRepeatTimeout = ViewConfiguration.getKeyRepeatTimeout();
+        Log.i("gjh","keyRepeatTimeout"+keyRepeatTimeout);
+
     }
 
     private void initData() {
@@ -66,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         mPractices.add(new Practice("first launcher view page", new Intent(this, FirstLauncherActivity.class)));
         mPractices.add(new Practice("notification", new Intent(this, NotificationActivity.class)));
         mPractices.add(new Practice("Blur img", new Intent(this, BlurImgActivity.class)));
+        mPractices.add(new Practice("GPS", new Intent(this, GpsActivity.class)));
 
     }
 

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/id"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_weight="1"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:textSize="17sp" />
+
+    <View
+        android:layout_width="0.5px"
+        android:layout_height="match_parent"
+        android:background="#B8B8B8"
+        android:visibility="visible" />
+
+
+    <FrameLayout
+        android:id="@+id/snr_layout"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_weight="4">
+        <View
+            android:id="@+id/bar"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="@color/colorPrimary"
+            />
+
+        <TextView
+            android:id="@+id/snr"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textColor="#000000"
+            android:gravity="right"
+            android:textSize="17sp" />
+    </FrameLayout>
+
+
+
+    <View
+        android:layout_width="0.5px"
+        android:layout_height="match_parent"
+        android:background="#B8B8B8"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/elevation"
+        android:layout_height="30dp"
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:textSize="17sp" />
+
+    <View
+        android:layout_width="0.5px"
+        android:layout_height="match_parent"
+        android:background="#B8B8B8"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/azimuth"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_weight="2"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:textSize="17sp" />
+
+    <View
+        android:layout_width="0.5px"
+        android:layout_height="match_parent"
+        android:background="#B8B8B8"
+        android:visibility="visible" />
+
+</LinearLayout>
