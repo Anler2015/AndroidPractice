@@ -18,6 +18,7 @@ import com.gejiahui.androidpractice.blur.BlurImgActivity;
 import com.gejiahui.androidpractice.dragrecyclerview.DragRecyclerViewActivity;
 import com.gejiahui.androidpractice.flexboxlayout.FlexBoxLayoutActivity;
 import com.gejiahui.androidpractice.gps.GpsActivity;
+import com.gejiahui.androidpractice.jni.JniCallBackActivity;
 import com.gejiahui.androidpractice.launcher.FirstLauncherActivity;
 import com.gejiahui.androidpractice.loadinganimation.LoadingAnimationActivity;
 import com.gejiahui.androidpractice.notification.NotificationActivity;
@@ -88,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
         mPractices.add(new Practice("notification", new Intent(this, NotificationActivity.class)));
         mPractices.add(new Practice("Blur img", new Intent(this, BlurImgActivity.class)));
         mPractices.add(new Practice("GPS", new Intent(this, GpsActivity.class)));
+        mPractices.add(new Practice("Jni Call Back ", new Intent(this, JniCallBackActivity.class)));
 
     }
 

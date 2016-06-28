@@ -21,3 +21,12 @@ LOCAL_MODULE := blur
 LOCAL_SRC_FILES := blurimg.cpp
 
 include $(BUILD_SHARED_LIBRARY)
+
+
+include $(CLEAR_VARS)
+
+LOCAL_LDLIBS := -L$(SYSROOT)/usr/lib -llog -lm
+LOCAL_MODULE := JniTest
+LOCAL_SRC_FILES := com_gejiahui_androidpractice_jni_JniLibrary.cpp
+
+include $(BUILD_SHARED_LIBRARY)

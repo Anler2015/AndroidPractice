@@ -52,6 +52,9 @@
         <activity
             android:name=".gps.GpsActivity"
             android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name=".jni.JniCallBackActivity"
+            android:theme="@style/AppTheme"></activity>
 
         <service
             android:name=".aidl.UserManagerService"

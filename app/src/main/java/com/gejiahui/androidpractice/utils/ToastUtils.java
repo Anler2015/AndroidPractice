@@ -9,8 +9,6 @@ import com.gejiahui.androidpractice.PracticeApplication;
  */
 public class ToastUtils {
 
-
-
     public static void show( CharSequence sequence) {
         Toast.makeText(PracticeApplication.getContext(), sequence, Toast.LENGTH_SHORT).show();
     }
