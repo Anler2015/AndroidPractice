@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.gejiahui.androidpractice.aidl.AIDLClientActivity;
 import com.gejiahui.androidpractice.blur.BlurImgActivity;
+import com.gejiahui.androidpractice.customview.CustomViewActivity;
 import com.gejiahui.androidpractice.dragrecyclerview.DragRecyclerViewActivity;
 import com.gejiahui.androidpractice.flexboxlayout.FlexBoxLayoutActivity;
 import com.gejiahui.androidpractice.gps.GpsActivity;
@@ -34,6 +35,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity {
     @Bind(R.id.list)
     ListView mPracticeList;
+
     private MyAdapter mAdapter;
     private List<Practice> mPractices;
 
@@ -80,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
         mPractices = new ArrayList<>();
 
         mPractices.add(new Practice("Retrofit", new Intent(this, RetrofitActivity.class)));
+        mPractices.add(new Practice("custom view", new Intent(this, CustomViewActivity.class)));
         mPractices.add(new Practice("PageTransformer", new Intent(this, ViewPageActivity.class)));
         mPractices.add(new Practice("AIDL", new Intent(this, AIDLClientActivity.class)));
         mPractices.add(new Practice("TagLayout", new Intent(this, FlexBoxLayoutActivity.class)));
