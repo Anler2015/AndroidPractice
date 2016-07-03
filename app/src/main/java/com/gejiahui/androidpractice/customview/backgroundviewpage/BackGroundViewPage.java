@@ -17,6 +17,9 @@ public class BackGroundViewPage extends ViewPager {
 
     private Bitmap mBackground = BitmapFactory.decodeResource(getResources(), R.drawable.e);
 
+    private int position = -1;
+
+
     public BackGroundViewPage(Context context) {
         super(context);
     }
@@ -28,19 +31,20 @@ public class BackGroundViewPage extends ViewPager {
 
     @Override
     protected void dispatchDraw(Canvas canvas) {
+        if(position == -1){
+            position = getCurrentItem();
+        }
 
         if(mBackground != null){
             int width = mBackground.getWidth();
             int height = mBackground.getHeight();
             int count = getAdapter().getCount();
-            int x = getScrollX();
+            int x = getScrollX() + position*getWidth() ;
             float itemWidth = width *1.0f/ count;
-            float widthForPix = itemWidth *1.0f /getWidth();
-            Rect scr = new Rect((int)(x *widthForPix),0,(int)(x *widthForPix +itemWidth ),height);
-
+            float widthForPix = itemWidth *1.0f /getWidth();// 屏幕每移动1px，图片对应移动的像素
+            Rect src = new Rect((int)(x *widthForPix),0,(int)(x *widthForPix +itemWidth ),height);
             Rect dest = new Rect((int)getScrollX(),0,getScrollX()+getWidth(),getHeight());
-
-            canvas.drawBitmap(mBackground,scr,dest,null);
+            canvas.drawBitmap(mBackground,src,dest,null);
           //  canvas.drawBitmap(mBackground,0,0,null);
         }
 
