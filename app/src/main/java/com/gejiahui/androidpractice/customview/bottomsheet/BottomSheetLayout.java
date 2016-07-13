@@ -2,14 +2,13 @@ package com.gejiahui.androidpractice.customview.bottomsheet;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 /**
  * Created by gejiahui on 2016/7/7.
  */
-public class BottomSheet extends FrameLayout {
+public class BottomSheetLayout extends FrameLayout {
     private static final int MARGIN_TOP = 300;
     private int marginTop = MARGIN_TOP;
     private int childCount = 0;
@@ -19,16 +18,16 @@ public class BottomSheet extends FrameLayout {
     private int mDrawerHeight;
 
 
-    public BottomSheet(Context context) {
+    public BottomSheetLayout(Context context) {
         super(context);
     }
 
-    public BottomSheet(Context context, AttributeSet attrs, int defStyleAttr) {
+    public BottomSheetLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
     }
 
-    public BottomSheet(Context context, AttributeSet attrs) {
+    public BottomSheetLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
@@ -43,8 +42,8 @@ public class BottomSheet extends FrameLayout {
         super.onLayout(changed, left, top, right, bottom);
         mHeight = getHeight();
         mDrawerHeight = mDrawer.getHeight();
-        Log.i("gjh","1 mDrawerHeight"+mDrawerHeight);
         mDrawer.setTranslationY(mDrawerHeight);
+
     }
 
 
@@ -61,31 +60,15 @@ public class BottomSheet extends FrameLayout {
         params.topMargin = marginTop;
         mDrawer.setLayoutParams(params);
 
-       // mDrawer.setVisibility(INVISIBLE);
     }
 
     public void showSheet() {
-       // mDrawer.setVisibility(VISIBLE);
-        Log.i("gjh","1 gettop"+mDrawer.getTop());
-        ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams)mDrawer.getLayoutParams();
-        Log.i("gjh","1 topMargin"+params.topMargin);
-        mDrawer.animate().translationY(0).setDuration(500).withEndAction(new Runnable() {
-            @Override
-            public void run() {
-                Log.i("gjh","2 gettop"+mDrawer.getTop());
-                ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams)mDrawer.getLayoutParams();
-                Log.i("gjh","2 topMargin"+params.topMargin);
-            }
-        }).start();
-
-
-
+        mDrawer.animate().translationY(0).setDuration(500).start();
     }
 
 
     public void closeSheet(){
         mDrawer.animate().translationY(mDrawerHeight).setDuration(500).start();
-       // mDrawer.setVisibility(GONE);
     }
 
 

@@ -22,7 +22,7 @@ public class BottomSheetFragment extends Fragment {
     @Bind(R.id.show)
     Button show;
     @Bind(R.id.bottom_sheet)
-    BottomSheet bottomSheet;
+    BottomSheetLayout bottomSheetLayout;
     boolean isShow = false;
     @Nullable
     @Override
@@ -36,10 +36,10 @@ public class BottomSheetFragment extends Fragment {
     @OnClick(R.id.show)
     public void showSheet(){
         if(isShow){
-            bottomSheet.closeSheet();
+            bottomSheetLayout.closeSheet();
             isShow = false;
         }else{
-            bottomSheet.showSheet();
+            bottomSheetLayout.showSheet();
             isShow = true;
         }
 

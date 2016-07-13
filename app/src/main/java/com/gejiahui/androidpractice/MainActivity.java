@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.gejiahui.androidpractice.aidl.AIDLClientActivity;
+import com.gejiahui.androidpractice.animationrecyclerview.AnimationRecyclerViewActivity;
 import com.gejiahui.androidpractice.blur.BlurImgActivity;
 import com.gejiahui.androidpractice.customview.CustomViewActivity;
 import com.gejiahui.androidpractice.dragrecyclerview.DragRecyclerViewActivity;
@@ -80,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initData() {
         mPractices = new ArrayList<>();
-
+        mPractices.add(new Practice("recycler animation", new Intent(this, AnimationRecyclerViewActivity.class)));
         mPractices.add(new Practice("Retrofit", new Intent(this, RetrofitActivity.class)));
         mPractices.add(new Practice("custom view", new Intent(this, CustomViewActivity.class)));
         mPractices.add(new Practice("PageTransformer", new Intent(this, ViewPageActivity.class)));

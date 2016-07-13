@@ -59,7 +59,9 @@
         <activity
             android:name=".customview.CustomViewActivity"
             android:theme="@style/AppTheme"></activity>
-
+        <activity
+            android:name=".animationrecyclerview.AnimationRecyclerViewActivity"
+            android:theme="@style/AppTheme"></activity>
 
         <service
             android:name=".aidl.UserManagerService"
